@@ -1,0 +1,27 @@
+{
+  "name": "graphql-jsproj",
+  "version": "1.0.0",
+  "description": "A base project for understanding GraphQL in a JavaScript environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdrianAAsoft/Graphql-JsProj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AdrianAAsoft/Graphql-JsProj/issues"
+  },
+  "homepage": "https://github.com/AdrianAAsoft/Graphql-JsProj#readme",
+  "dependencies": {
+    "@apollo/server": "^5.5.0",
+    "graphql": "^16.13.2",
+    "pg": "^8.20.0"
+  }
+}
