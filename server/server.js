@@ -13,13 +13,23 @@ const typeDefs = `#graphql
     id: ID!  
     name: String!
     }
+    type Item{
+    id: ID!
+    description: string!
+    price: float
+    quantity: int!
+    }
 
     type Query{
-    users: [User] }
+    users: [User] 
+    items: [Item]
+    }
 
     type Mutation{
-    createUsr(name: String!): User }
-
+    createUsr(name: String!): User 
+    createItm(descript: string!, price: float, quantity : int!): Item
+    updateItm(id: ID!, descript: strign, price: floar, quantity: int): Item
+    }
 `
 
 // reolvers for how to create or consume data (its how scheme works)
@@ -30,6 +40,10 @@ const resolvers = {
             const res = await pool.query("select * from users");
             return res.rows; 
         },
+        items: async () => {
+            const res = await pool.query("select * from items");
+            return res.rows;
+        }
     },
     Mutation: {
         createUsr: async (_, {name}) => {
@@ -39,8 +53,23 @@ const resolvers = {
             );
             return res.rows[0];
         },
+        createItm: async (_, {descript, price, quantity}) => {
+            const res = await pool.query("Insert into items(description,price,quantity) VALUES($1,$2,$3) returning *",
+                [descript, price,quantity]
+            );
+            return res.rows[0];
+        },
+        updateItm: async (_, { id, descript, price, quantity }) => {
+            const res = await pool.query(`Update items set        
+                                    description = COALESCE($1, description),
+                                    price = COALESCE($2, price),
+                                    quantity = COALESCE($3, quantity) where id = $4 returning *`,
+                [descript, price, quantity, id]
+            );
+            return res.rows[0];
+        }
     },
-    
+     
 }
 
 //Creates the server - Here’s my schema and logic — expose it as an API

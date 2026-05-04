@@ -16,6 +16,13 @@ export async function inDb() {
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL
     );
+
+    CREATE TABLE IF NOT EXISTS items (
+      id SERIAL PRIMARY KEY,
+      description TEXT NOT NULL,
+      price NUMERIC,
+      quantity INT NOT NULL
+    );
   `);
 }
 
