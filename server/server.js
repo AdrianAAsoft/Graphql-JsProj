@@ -15,9 +15,9 @@ const typeDefs = `#graphql
     }
     type Item{
     id: ID!
-    description: string!
-    price: float
-    quantity: int!
+    description: String!
+    price: Float
+    quantity: Int!
     }
 
     type Query{
@@ -27,8 +27,8 @@ const typeDefs = `#graphql
 
     type Mutation{
     createUsr(name: String!): User 
-    createItm(descript: string!, price: float, quantity : int!): Item
-    updateItm(id: ID!, descript: strign, price: floar, quantity: int): Item
+    createItm(descript: String!, price: Float, quantity : Int!): Item
+    updateItm(id: ID!, descript: String, price: Float, quantity: Int): Item
     }
 `
 

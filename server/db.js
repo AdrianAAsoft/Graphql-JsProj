@@ -3,7 +3,7 @@ const { Pool } = pkg;
 
 
 export const pool = new Pool({
-    host: "localhost",
+    host: process.env.dbhost,   //docker container name
     port: "5432",
     user: "postgres",
     password: "1234",
