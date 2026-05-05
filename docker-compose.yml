@@ -2,16 +2,16 @@ version: "3.9"
 
 services:
   db:
-    image: postgres:15
+    image: postgres:15   #this is the image from wich the container is creating
     container_name: postgres_db
     restart: always
-    environment:
+    environment: #env values for when it creates the db in the docker
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: mydb
     ports:
       - "5432:5432"
-    volumes:
+    volumes:  #where in my docker it stores the data 
       - db_data:/var/lib/postgresql/data
   app:
     build: .
