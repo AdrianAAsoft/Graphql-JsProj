@@ -16,6 +16,7 @@ npm run dev
 ---
 
 when changes on Dockerfile
-docker-compose up -d --build
+docker-compose up -d --build //cambios de programacion
+docker-compose down -v //inicio de base de datos desde 0
 ```
 ---
