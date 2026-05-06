@@ -1,5 +1,4 @@
 import { pool } from '../db.js'; 
-import {pubsub} from './SubRes.js'
 
 export const Itemresolvers = {
     Query: {
@@ -13,7 +12,6 @@ export const Itemresolvers = {
             const res = await pool.query("Insert into items(description,price,quantity) VALUES($1,$2,$3) returning *",
                 [descript, price,quantity]
             );
-            pubsub.publish("itemCreated", {itemCreated: res.rows[0]})
             return res.rows[0];
         },
         updateItm: async (_, { id, descript, price, quantity }) => {
