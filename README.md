@@ -11,6 +11,7 @@ docker-compose up -d
 npm install pg
 npm install @apollo/server graphql
 ---
+npm i --install all dependencies in the package.json
 npm run build
 npm run dev
 ---
