@@ -5,7 +5,6 @@ import {typeDefs} from './schemas.js';
 import {resolvers} from './mutations.js';
 
 await inDb();
-
 //Creates the server - Here’s my schema and logic — expose it as an API
 const server = new ApolloServer({
   typeDefs,
