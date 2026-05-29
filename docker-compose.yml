@@ -21,18 +21,6 @@ services:
       - db
     environment:  #env variables 
       - dbhost=db
-
-  app:
-    build: .
-    container_name: Backend
-    restart: always
-    ports:
-      - "4000:4000"
-    depends_on:
-      - db
-    environment:
-      - dbhost=db
-
   frontend:
     build:
       context: .

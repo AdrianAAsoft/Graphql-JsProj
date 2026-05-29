@@ -1,4 +1,5 @@
 import { pool } from '../db.js'; 
+import {pubsub} from './SubRes.js'
 
 export const Userresolvers = {
     Query: {
@@ -24,6 +25,7 @@ export const Userresolvers = {
                 "Update users set name = COALESCE($1, name),  item = COALESCE($2, users.item) where id = $3 returning *",
                 [name, item, id]
             );
+            pubsub.publish("usrUpdated", {usrUpdated: res.rows[0]})
             return res.rows[0];
         },
     },

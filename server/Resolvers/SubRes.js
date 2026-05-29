@@ -4,10 +4,10 @@ export const pubsub = new PubSub();
 export const SubRes = {
   Subscription: {
     itemCreated: {
-        subscribe: () => pubsub.asyncIterator(["itemCreated"])
+        subscribe: () => pubsub.asyncIterableIterator(["itemCreated"])
     },
     usrUpdated: {
-        subscribe: () => pubsub.asyncIterator(["usrUpdated"])
+        subscribe: () => pubsub.asyncIterableIterator(["usrUpdated"])
     },
   },
 };
