@@ -10,6 +10,8 @@ Comand bash for dependencies and then testing
 docker-compose up -d
 npm install pg
 npm install @apollo/server graphql
+npm install graphql-ws ws @graphql-tools/merge
+npm install graphql-subscriptions
 ---
 npm i --install all dependencies in the package.json
 npm run build

@@ -27,4 +27,10 @@ export const typeDefs = `#graphql
     createItm(descript: String!, price: Float, quantity: Int!): Item
     updateItm(id: ID!, descript: String, price: Float, quantity: Int): Item
     }
+
+    type Subscription{
+    itemCreated: Item,
+    usrUpdated: User
+    }
+
 `
