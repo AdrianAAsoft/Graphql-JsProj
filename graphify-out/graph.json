@@ -1,0 +1,2390 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "graphql_data_resolution",
+        "label": "GraphQL Data Resolution Flow",
+        "nodes": [
+          "schemas_typedefs",
+          "mutations_resolvers",
+          "userres_resolvers",
+          "itemres_resolvers"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "server/"
+      },
+      {
+        "id": "subscription_event_flow",
+        "label": "Subscription and Event Publishing",
+        "nodes": [
+          "subres_subscriptions",
+          "pubsub_eventbus",
+          "itemres_resolvers",
+          "userres_resolvers"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "server/Resolvers/"
+      },
+      {
+        "id": "server_infrastructure",
+        "label": "Server Infrastructure and Services",
+        "nodes": [
+          "server_apolloserver",
+          "apollo_express_integration",
+          "websocket_subscriptions",
+          "postgres_service"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "server/"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "package.json",
+      "id": "package_json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "community": 0,
+      "norm_label": "name",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "community": 0,
+      "norm_label": "version",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_version"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "community": 0,
+      "norm_label": "description",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_description"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "community": 0,
+      "norm_label": "main",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_main"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "community": 0,
+      "norm_label": "scripts",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_scripts"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "community": 0,
+      "norm_label": "test",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_scripts_test"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "community": 0,
+      "norm_label": "dev",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_scripts_dev"
+    },
+    {
+      "label": "repository",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "community": 0,
+      "norm_label": "repository",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_repository"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "community": 0,
+      "norm_label": "type",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_repository_type"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "community": 0,
+      "norm_label": "url",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_repository_url"
+    },
+    {
+      "label": "keywords",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "community": 0,
+      "norm_label": "keywords",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_keywords"
+    },
+    {
+      "label": "author",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "community": 0,
+      "norm_label": "author",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_author"
+    },
+    {
+      "label": "license",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "community": 0,
+      "norm_label": "license",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_license"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "community": 0,
+      "norm_label": "type",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_type"
+    },
+    {
+      "label": "bugs",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "community": 0,
+      "norm_label": "bugs",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_bugs"
+    },
+    {
+      "label": "url",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "community": 0,
+      "norm_label": "url",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_bugs_url"
+    },
+    {
+      "label": "homepage",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "community": 0,
+      "norm_label": "homepage",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_homepage"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "community": 2,
+      "norm_label": "dependencies",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies"
+    },
+    {
+      "label": "@apollo/server",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "community": 2,
+      "norm_label": "@apollo/server",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_apollo_server"
+    },
+    {
+      "label": "@graphql-tools/merge",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "community": 2,
+      "norm_label": "@graphql-tools/merge",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_merge"
+    },
+    {
+      "label": "graphql",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "community": 2,
+      "norm_label": "graphql",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql"
+    },
+    {
+      "label": "pg",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "community": 2,
+      "norm_label": "pg",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_pg"
+    },
+    {
+      "label": "db.js",
+      "file_type": "code",
+      "source_file": "server/db.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "db.js",
+      "id": "server_db_js"
+    },
+    {
+      "label": "pool",
+      "file_type": "code",
+      "source_file": "server/db.js",
+      "source_location": "L5",
+      "community": 4,
+      "norm_label": "pool",
+      "id": "server_db_pool"
+    },
+    {
+      "label": "inDb()",
+      "file_type": "code",
+      "source_file": "server/db.js",
+      "source_location": "L13",
+      "community": 4,
+      "norm_label": "indb()",
+      "id": "server_db_indb"
+    },
+    {
+      "label": "mutations.js",
+      "file_type": "code",
+      "source_file": "server/mutations.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "mutations.js",
+      "id": "server_mutations_js"
+    },
+    {
+      "label": "resolvers",
+      "file_type": "code",
+      "source_file": "server/mutations.js",
+      "source_location": "L10",
+      "community": 5,
+      "norm_label": "resolvers",
+      "id": "server_mutations_resolvers"
+    },
+    {
+      "label": "schemas.js",
+      "file_type": "code",
+      "source_file": "server/schemas.js",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "schemas.js",
+      "id": "server_schemas_js"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "server.js",
+      "id": "server_server_js"
+    },
+    {
+      "label": "server",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L26",
+      "community": 5,
+      "norm_label": "server",
+      "id": "server_server_server"
+    },
+    {
+      "label": "ItemRes.js",
+      "file_type": "code",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "itemres.js",
+      "id": "server_resolvers_itemres_js"
+    },
+    {
+      "label": "Itemresolvers",
+      "file_type": "code",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L4",
+      "community": 4,
+      "norm_label": "itemresolvers",
+      "id": "resolvers_itemres_itemresolvers"
+    },
+    {
+      "label": "UserRes.js",
+      "file_type": "code",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "userres.js",
+      "id": "server_resolvers_userres_js"
+    },
+    {
+      "label": "Userresolvers",
+      "file_type": "code",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L4",
+      "community": 4,
+      "norm_label": "userresolvers",
+      "id": "resolvers_userres_userresolvers"
+    },
+    {
+      "label": "GraphQL-JsProj README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "graphql-jsproj readme",
+      "id": "readme"
+    },
+    {
+      "label": "Docker Container Configuration",
+      "file_type": "code",
+      "source_file": "Dockerfile",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "docker container configuration",
+      "id": "dockerfile"
+    },
+    {
+      "label": "Docker Compose Orchestration",
+      "file_type": "code",
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "docker compose orchestration",
+      "id": "docker_compose_yml"
+    },
+    {
+      "label": "Apollo Server",
+      "file_type": "rationale",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "apollo server",
+      "id": "apollo_server_dep"
+    },
+    {
+      "label": "GraphQL",
+      "file_type": "rationale",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 0,
+      "norm_label": "graphql",
+      "id": "graphql_dep"
+    },
+    {
+      "label": "PostgreSQL",
+      "file_type": "rationale",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "postgresql",
+      "id": "postgres_dep"
+    },
+    {
+      "label": "GraphQL Tools Merge",
+      "file_type": "rationale",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 2,
+      "norm_label": "graphql tools merge",
+      "id": "graphql_tools_merge"
+    },
+    {
+      "label": "Server Entry Point",
+      "file_type": "code",
+      "source_file": "server/server.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "server entry point",
+      "id": "server_ts"
+    },
+    {
+      "label": "GraphQL Type Definitions",
+      "file_type": "code",
+      "source_file": "server/graphql-schema.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "graphql type definitions",
+      "id": "graphql_schema_ts"
+    },
+    {
+      "label": "Resolvers",
+      "file_type": "code",
+      "source_file": "server/resolvers.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "resolvers",
+      "id": "resolvers_ts"
+    },
+    {
+      "label": "Type Definitions",
+      "file_type": "code",
+      "source_file": "server/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "type definitions",
+      "id": "types_ts"
+    },
+    {
+      "label": "User GraphQL Type",
+      "file_type": "rationale",
+      "source_file": "server/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "user graphql type",
+      "id": "user_type"
+    },
+    {
+      "label": "Item GraphQL Type",
+      "file_type": "rationale",
+      "source_file": "server/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "item graphql type",
+      "id": "item_type"
+    },
+    {
+      "label": "Query Operations",
+      "file_type": "rationale",
+      "source_file": "server/schemas.js",
+      "source_location": "18-22",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "query operations",
+      "id": "query_operations"
+    },
+    {
+      "label": "Mutation Operations",
+      "file_type": "rationale",
+      "source_file": "server/schemas.js",
+      "source_location": "24-29",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "mutation operations",
+      "id": "mutation_operations"
+    },
+    {
+      "label": "PostgreSQL Database Service",
+      "file_type": "rationale",
+      "source_file": "docker-compose.yml",
+      "source_location": "4-15",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "postgresql database service",
+      "id": "postgres_service"
+    },
+    {
+      "label": "Application Service",
+      "file_type": "rationale",
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "application service",
+      "id": "app_service"
+    },
+    {
+      "label": "Node 18 Runtime",
+      "file_type": "rationale",
+      "source_file": "Dockerfile",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 7,
+      "norm_label": "node 18 runtime",
+      "id": "node_runtime"
+    },
+    {
+      "label": "@as-integrations/express5",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "community": 2,
+      "norm_label": "@as-integrations/express5",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_as_integrations_express5"
+    },
+    {
+      "label": "@graphql-tools/schema",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "community": 2,
+      "norm_label": "@graphql-tools/schema",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_schema"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "community": 2,
+      "norm_label": "express",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_express"
+    },
+    {
+      "label": "graphql-subscriptions",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "community": 2,
+      "norm_label": "graphql-subscriptions",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_subscriptions"
+    },
+    {
+      "label": "graphql-ws",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "community": 2,
+      "norm_label": "graphql-ws",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_ws"
+    },
+    {
+      "label": "ws",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "community": 2,
+      "norm_label": "ws",
+      "id": "agents_graphify_feature_implementation_51ed3220_package_dependencies_ws"
+    },
+    {
+      "label": "schema",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L18",
+      "community": 5,
+      "norm_label": "schema",
+      "id": "server_server_schema"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L20",
+      "community": 5,
+      "norm_label": "app",
+      "id": "server_server_app"
+    },
+    {
+      "label": "httpServer",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L21",
+      "community": 5,
+      "norm_label": "httpserver",
+      "id": "server_server_httpserver"
+    },
+    {
+      "label": "wsServer",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L24",
+      "community": 5,
+      "norm_label": "wsserver",
+      "id": "server_server_wsserver"
+    },
+    {
+      "label": "serverCleanup",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": "L54",
+      "community": 5,
+      "norm_label": "servercleanup",
+      "id": "server_server_servercleanup"
+    },
+    {
+      "label": "SubRes.js",
+      "file_type": "code",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "subres.js",
+      "id": "server_resolvers_subres_js"
+    },
+    {
+      "label": "pubsub",
+      "file_type": "code",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "L2",
+      "community": 4,
+      "norm_label": "pubsub",
+      "id": "resolvers_subres_pubsub"
+    },
+    {
+      "label": "SubRes",
+      "file_type": "code",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "L4",
+      "community": 4,
+      "norm_label": "subres",
+      "id": "resolvers_subres_subres"
+    },
+    {
+      "label": "GraphQL-JsProj Package",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": "https://github.com/AdrianAAsoft/Graphql-JsProj.git",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 8,
+      "norm_label": "graphql-jsproj package",
+      "id": "package_graphql_jsproj"
+    },
+    {
+      "label": "Merged Resolvers",
+      "file_type": "code",
+      "source_file": "server/mutations.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "merged resolvers",
+      "id": "mutations_resolvers"
+    },
+    {
+      "label": "GraphQL Schema Type Definitions",
+      "file_type": "code",
+      "source_file": "server/schemas.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "graphql schema type definitions",
+      "id": "schemas_typedefs"
+    },
+    {
+      "label": "Apollo Server Setup",
+      "file_type": "code",
+      "source_file": "server/server.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "apollo server setup",
+      "id": "server_apolloserver"
+    },
+    {
+      "label": "Item Resolvers",
+      "file_type": "code",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "item resolvers",
+      "id": "itemres_resolvers"
+    },
+    {
+      "label": "Subscription Resolvers",
+      "file_type": "code",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "subscription resolvers",
+      "id": "subres_subscriptions"
+    },
+    {
+      "label": "User Resolvers",
+      "file_type": "code",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "user resolvers",
+      "id": "userres_resolvers"
+    },
+    {
+      "label": "User GraphQL Type",
+      "file_type": "rationale",
+      "source_file": "server/schemas.js",
+      "source_location": "5-9",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "user graphql type",
+      "id": "type_user"
+    },
+    {
+      "label": "Item GraphQL Type",
+      "file_type": "rationale",
+      "source_file": "server/schemas.js",
+      "source_location": "11-16",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "item graphql type",
+      "id": "type_item"
+    },
+    {
+      "label": "Subscription Operations",
+      "file_type": "rationale",
+      "source_file": "server/schemas.js",
+      "source_location": "31-34",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "subscription operations",
+      "id": "subscription_operations"
+    },
+    {
+      "label": "PubSub Event Bus",
+      "file_type": "code",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "1-2",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "pubsub event bus",
+      "id": "pubsub_eventbus"
+    },
+    {
+      "label": "Database Connection Pool",
+      "file_type": "code",
+      "source_file": "server/db.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "database connection pool",
+      "id": "db_pool"
+    },
+    {
+      "label": "Docker Compose Configuration",
+      "file_type": "document",
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 6,
+      "norm_label": "docker compose configuration",
+      "id": "docker_compose_config"
+    },
+    {
+      "label": "Apollo Server Express Integration",
+      "file_type": "rationale",
+      "source_file": "server/server.js",
+      "source_location": "6, 48",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "apollo server express integration",
+      "id": "apollo_express_integration"
+    },
+    {
+      "label": "WebSocket Server for Subscriptions",
+      "file_type": "rationale",
+      "source_file": "server/server.js",
+      "source_location": "8, 24, 54, 60-63",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 1,
+      "norm_label": "websocket server for subscriptions",
+      "id": "websocket_subscriptions"
+    },
+    {
+      "label": "constants.js",
+      "file_type": "code",
+      "source_file": "constants.js",
+      "source_location": "L1",
+      "id": "constants_js"
+    },
+    {
+      "label": "ICONS",
+      "file_type": "code",
+      "source_file": "constants.js",
+      "source_location": "L6",
+      "id": "src_constants_icons"
+    },
+    {
+      "label": "COLORS",
+      "file_type": "code",
+      "source_file": "constants.js",
+      "source_location": "L7",
+      "id": "src_constants_colors"
+    },
+    {
+      "label": "ORBITS",
+      "file_type": "code",
+      "source_file": "constants.js",
+      "source_location": "L8",
+      "id": "src_constants_orbits"
+    },
+    {
+      "label": "Galaxy.jsx",
+      "file_type": "code",
+      "source_file": "Galaxy.jsx",
+      "source_location": "L1",
+      "id": "galaxy_jsx"
+    },
+    {
+      "label": "Galaxy()",
+      "file_type": "code",
+      "source_file": "Galaxy.jsx",
+      "source_location": "L5",
+      "id": "src_galaxy_galaxy"
+    },
+    {
+      "label": "GalaxyHUD.jsx",
+      "file_type": "code",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L1",
+      "id": "galaxyhud_jsx"
+    },
+    {
+      "label": "toPlanet()",
+      "file_type": "code",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L15",
+      "id": "src_galaxyhud_toplanet"
+    },
+    {
+      "label": "GalaxyHUD()",
+      "file_type": "code",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L31",
+      "id": "src_galaxyhud_galaxyhud"
+    },
+    {
+      "label": "graphqlClient.js",
+      "file_type": "code",
+      "source_file": "graphqlClient.js",
+      "source_location": "L1",
+      "id": "graphqlclient_js"
+    },
+    {
+      "label": "graphqlRequest()",
+      "file_type": "code",
+      "source_file": "graphqlClient.js",
+      "source_location": "L3",
+      "id": "src_graphqlclient_graphqlrequest"
+    },
+    {
+      "label": "ModuleDetail.jsx",
+      "file_type": "code",
+      "source_file": "ModuleDetail.jsx",
+      "source_location": "L1",
+      "id": "moduledetail_jsx"
+    },
+    {
+      "label": "ModuleDetail()",
+      "file_type": "code",
+      "source_file": "ModuleDetail.jsx",
+      "source_location": "L4",
+      "id": "src_moduledetail_moduledetail"
+    },
+    {
+      "label": "Fact()",
+      "file_type": "code",
+      "source_file": "ModuleDetail.jsx",
+      "source_location": "L64",
+      "id": "src_moduledetail_fact"
+    },
+    {
+      "label": "Planet.jsx",
+      "file_type": "code",
+      "source_file": "Planet.jsx",
+      "source_location": "L1",
+      "id": "planet_jsx"
+    },
+    {
+      "label": "Planet()",
+      "file_type": "code",
+      "source_file": "Planet.jsx",
+      "source_location": "L4",
+      "id": "src_planet_planet"
+    },
+    {
+      "label": "Starfield.jsx",
+      "file_type": "code",
+      "source_file": "Starfield.jsx",
+      "source_location": "L1",
+      "id": "starfield_jsx"
+    },
+    {
+      "label": "Starfield()",
+      "file_type": "code",
+      "source_file": "Starfield.jsx",
+      "source_location": "L3",
+      "id": "src_starfield_starfield"
+    },
+    {
+      "label": "TopBar.jsx",
+      "file_type": "code",
+      "source_file": "TopBar.jsx",
+      "source_location": "L1",
+      "id": "topbar_jsx"
+    },
+    {
+      "label": "TopBar()",
+      "file_type": "code",
+      "source_file": "TopBar.jsx",
+      "source_location": "L3",
+      "id": "src_topbar_topbar"
+    },
+    {
+      "label": "useClock.js",
+      "file_type": "code",
+      "source_file": "useClock.js",
+      "source_location": "L1",
+      "id": "useclock_js"
+    },
+    {
+      "label": "useClock()",
+      "file_type": "code",
+      "source_file": "useClock.js",
+      "source_location": "L3",
+      "id": "src_useclock_useclock"
+    },
+    {
+      "label": "useFlyTo.js",
+      "file_type": "code",
+      "source_file": "useFlyTo.js",
+      "source_location": "L1",
+      "id": "useflyto_js"
+    },
+    {
+      "label": "useFlyTo()",
+      "file_type": "code",
+      "source_file": "useFlyTo.js",
+      "source_location": "L4",
+      "id": "src_useflyto_useflyto"
+    },
+    {
+      "label": "useItems.js",
+      "file_type": "code",
+      "source_file": "useItems.js",
+      "source_location": "L1",
+      "id": "useitems_js"
+    },
+    {
+      "label": "useItems()",
+      "file_type": "code",
+      "source_file": "useItems.js",
+      "source_location": "L4",
+      "id": "src_useitems_useitems"
+    }
+  ],
+  "edges": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_author"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_bugs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_homepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_keywords"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_license"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_repository"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_scripts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_type"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "package_json",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_version"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "apollo_server_dep"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "graphql_dep"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "graphql_tools_merge"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "postgres_dep"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_scripts",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_scripts_dev"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_scripts",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_scripts_test"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_repository",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_repository_type"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_repository",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_repository_url"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_bugs",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_bugs_url"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_apollo_server"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_merge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_pg"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_as_integrations_express5"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_express"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_subscriptions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_schema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_ws"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "target": "agents_graphify_feature_implementation_51ed3220_package_dependencies_ws"
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "import",
+      "confidence_score": 1.0,
+      "source": "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_merge",
+      "target": "graphql_tools_merge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/db.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_js",
+      "target": "server_db_indb"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/db.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_js",
+      "target": "server_db_pool"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_js",
+      "target": "server_resolvers_itemres_js"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_js",
+      "target": "server_resolvers_userres_js"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_js",
+      "target": "server_server_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_pool",
+      "target": "server_resolvers_itemres_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_pool",
+      "target": "server_resolvers_userres_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_db_indb",
+      "target": "server_server_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "resolvers_itemres_itemresolvers"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "resolvers_userres_userresolvers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "server_mutations_resolvers"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "server_resolvers_itemres_js"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "server_resolvers_userres_js"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "server_server_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "resolvers_subres_subres"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/mutations.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_js",
+      "target": "server_resolvers_subres_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_mutations_resolvers",
+      "target": "server_server_js"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_schemas_js",
+      "target": "server_server_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_server_js",
+      "target": "server_server_server"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_server_js",
+      "target": "server_server_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_server_js",
+      "target": "server_server_httpserver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_server_js",
+      "target": "server_server_schema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_server_js",
+      "target": "server_server_servercleanup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/server.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_server_js",
+      "target": "server_server_wsserver"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_itemres_js",
+      "target": "resolvers_itemres_itemresolvers"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_itemres_js",
+      "target": "resolvers_subres_pubsub"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_itemres_js",
+      "target": "server_resolvers_subres_js"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_userres_js",
+      "target": "resolvers_userres_userresolvers"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_userres_js",
+      "target": "server_resolvers_subres_js"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_userres_js",
+      "target": "resolvers_subres_pubsub"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "apollo_server_dep"
+    },
+    {
+      "relation": "cites",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "postgres_dep"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Dockerfile",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "dockerfile",
+      "target": "node_runtime"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docker_compose_yml",
+      "target": "app_service"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docker_compose_yml",
+      "target": "postgres_service"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "apollo_server_dep",
+      "target": "server_ts"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_ts",
+      "target": "graphql_schema_ts"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_ts",
+      "target": "resolvers_ts"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/graphql-schema.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "graphql_schema_ts",
+      "target": "item_type"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/graphql-schema.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "graphql_schema_ts",
+      "target": "mutation_operations"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/graphql-schema.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "graphql_schema_ts",
+      "target": "query_operations"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/graphql-schema.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "graphql_schema_ts",
+      "target": "user_type"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/resolvers.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resolvers_ts",
+      "target": "item_type"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/resolvers.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resolvers_ts",
+      "target": "types_ts"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/resolvers.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resolvers_ts",
+      "target": "user_type"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/types.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "user_type",
+      "target": "item_type"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "postgres_service",
+      "target": "app_service"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docker-compose.yml",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "postgres_service",
+      "target": "docker_compose_config"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_subres_js",
+      "target": "resolvers_subres_pubsub"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "server_resolvers_subres_js",
+      "target": "resolvers_subres_subres"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/mutations.js",
+      "source_location": "3",
+      "weight": 1.0,
+      "source": "mutations_resolvers",
+      "target": "itemres_resolvers"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/mutations.js",
+      "source_location": "4",
+      "weight": 1.0,
+      "source": "mutations_resolvers",
+      "target": "subres_subscriptions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/mutations.js",
+      "source_location": "2",
+      "weight": 1.0,
+      "source": "mutations_resolvers",
+      "target": "userres_resolvers"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.js",
+      "source_location": "14",
+      "weight": 1.0,
+      "source": "mutations_resolvers",
+      "target": "server_apolloserver"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.js",
+      "source_location": "13",
+      "weight": 1.0,
+      "source": "schemas_typedefs",
+      "target": "server_apolloserver"
+    },
+    {
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.js",
+      "source_location": "6, 48",
+      "weight": 1.0,
+      "source": "server_apolloserver",
+      "target": "apollo_express_integration"
+    },
+    {
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/server.js",
+      "source_location": "8, 24, 54, 60-63",
+      "weight": 1.0,
+      "source": "server_apolloserver",
+      "target": "websocket_subscriptions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "1",
+      "weight": 1.0,
+      "source": "itemres_resolvers",
+      "target": "db_pool"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "2",
+      "weight": 1.0,
+      "source": "itemres_resolvers",
+      "target": "pubsub_eventbus"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": "16",
+      "weight": 1.0,
+      "source": "itemres_resolvers",
+      "target": "subscription_operations"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/ItemRes.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "itemres_resolvers",
+      "target": "type_item"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/SubRes.js",
+      "source_location": "1",
+      "weight": 1.0,
+      "source": "subres_subscriptions",
+      "target": "pubsub_eventbus"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "1",
+      "weight": 1.0,
+      "source": "userres_resolvers",
+      "target": "db_pool"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "2",
+      "weight": 1.0,
+      "source": "userres_resolvers",
+      "target": "pubsub_eventbus"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": "28",
+      "weight": 1.0,
+      "source": "userres_resolvers",
+      "target": "subscription_operations"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/Resolvers/UserRes.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "userres_resolvers",
+      "target": "type_user"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "server/schemas.js",
+      "source_location": "8",
+      "weight": 1.0,
+      "source": "type_user",
+      "target": "type_item"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "constants.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "constants_js",
+      "_tgt": "src_constants_colors",
+      "source": "constants_js",
+      "target": "src_constants_colors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "constants.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "constants_js",
+      "_tgt": "src_constants_icons",
+      "source": "constants_js",
+      "target": "src_constants_icons"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "constants.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "constants_js",
+      "_tgt": "src_constants_orbits",
+      "source": "constants_js",
+      "target": "src_constants_orbits"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "galaxyhud_jsx",
+      "_tgt": "constants_js",
+      "source": "constants_js",
+      "target": "galaxyhud_jsx"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "galaxyhud_jsx",
+      "_tgt": "src_constants_icons",
+      "source": "src_constants_icons",
+      "target": "galaxyhud_jsx"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "galaxyhud_jsx",
+      "_tgt": "src_constants_colors",
+      "source": "src_constants_colors",
+      "target": "galaxyhud_jsx"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "galaxyhud_jsx",
+      "_tgt": "src_constants_orbits",
+      "source": "src_constants_orbits",
+      "target": "galaxyhud_jsx"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Galaxy.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "galaxy_jsx",
+      "_tgt": "planet_jsx",
+      "source": "galaxy_jsx",
+      "target": "planet_jsx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Galaxy.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "galaxy_jsx",
+      "_tgt": "src_galaxy_galaxy",
+      "source": "galaxy_jsx",
+      "target": "src_galaxy_galaxy"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "galaxyhud_jsx",
+      "_tgt": "src_galaxyhud_galaxyhud",
+      "source": "galaxyhud_jsx",
+      "target": "src_galaxyhud_galaxyhud"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_src": "galaxyhud_jsx",
+      "_tgt": "src_galaxyhud_toplanet",
+      "source": "galaxyhud_jsx",
+      "target": "src_galaxyhud_toplanet"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_src": "src_galaxyhud_galaxyhud",
+      "_tgt": "src_useclock_useclock",
+      "source": "src_galaxyhud_galaxyhud",
+      "target": "src_useclock_useclock"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_src": "src_galaxyhud_galaxyhud",
+      "_tgt": "src_useflyto_useflyto",
+      "source": "src_galaxyhud_galaxyhud",
+      "target": "src_useflyto_useflyto"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "GalaxyHUD.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_src": "src_galaxyhud_galaxyhud",
+      "_tgt": "src_useitems_useitems",
+      "source": "src_galaxyhud_galaxyhud",
+      "target": "src_useitems_useitems"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphqlClient.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "graphqlclient_js",
+      "_tgt": "src_graphqlclient_graphqlrequest",
+      "source": "graphqlclient_js",
+      "target": "src_graphqlclient_graphqlrequest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ModuleDetail.jsx",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_src": "moduledetail_jsx",
+      "_tgt": "src_moduledetail_fact",
+      "source": "moduledetail_jsx",
+      "target": "src_moduledetail_fact"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "ModuleDetail.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "moduledetail_jsx",
+      "_tgt": "src_moduledetail_moduledetail",
+      "source": "moduledetail_jsx",
+      "target": "src_moduledetail_moduledetail"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Planet.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "planet_jsx",
+      "_tgt": "src_planet_planet",
+      "source": "planet_jsx",
+      "target": "src_planet_planet"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "Starfield.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "starfield_jsx",
+      "_tgt": "src_starfield_starfield",
+      "source": "starfield_jsx",
+      "target": "src_starfield_starfield"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "TopBar.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "topbar_jsx",
+      "_tgt": "src_topbar_topbar",
+      "source": "topbar_jsx",
+      "target": "src_topbar_topbar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "useClock.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "useclock_js",
+      "_tgt": "src_useclock_useclock",
+      "source": "useclock_js",
+      "target": "src_useclock_useclock"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "useFlyTo.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "useflyto_js",
+      "_tgt": "src_useflyto_useflyto",
+      "source": "useflyto_js",
+      "target": "src_useflyto_useflyto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "useItems.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "useitems_js",
+      "_tgt": "src_useitems_useitems",
+      "source": "useitems_js",
+      "target": "src_useitems_useitems"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+.g-star { position: absolute; border-radius: 50%; background: #eafcff; animation: g-twinkle 3.5s ease-in-out infinite; }
+@keyframes g-twinkle { 0%, 100% { opacity: .12; } 50% { opacity: .85; } }
+
+.g-core { animation: g-pulse 2.4s ease-in-out infinite; }
+@keyframes g-pulse { 0%, 100% { opacity: .7; } 50% { opacity: 1; } }
+
+.g-planet-halo { animation: g-halo 2.2s ease-in-out infinite; }
+@keyframes g-halo { 0%, 100% { opacity: .3; } 50% { opacity: .7; } }
+
+.g-ping { animation: g-ping-out .65s ease-out forwards; }
+@keyframes g-ping-out { 0% { r: 6; opacity: .9; } 100% { r: 60; opacity: 0; } }
+
+.g-label { font-family: 'JetBrains Mono', monospace; letter-spacing: 1.4px; }
+
+.g-fact { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid rgba(76, 231, 255, .12); }
+.g-fact:last-child { border-bottom: none; }
+
+.g-back:hover { background: rgba(76, 231, 255, .14) !important; }
+
+.g-hit .g-hint { opacity: 0; transition: opacity .2s ease; }
+.g-hit:hover .g-hint { opacity: 1; }
+
+/* fly-to-planet transform, shared by the Galaxy wrapper */
+.g-wrap { transition: transform .65s cubic-bezier(.4, 0, .2, 1), opacity .65s ease; transform-origin: 50% 50%; }
+.g-wrap.zoom { transform: scale(9); opacity: 0; }
+
+/* module briefing overlay fade */
+.g-overlay { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .3s ease; z-index: 4; }
+.g-overlay.visible { opacity: 1; pointer-events: auto; }

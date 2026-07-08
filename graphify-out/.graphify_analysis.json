@@ -1,0 +1,292 @@
+{
+  "communities": {
+    "0": [
+      "agents_graphify_feature_implementation_51ed3220_package_author",
+      "agents_graphify_feature_implementation_51ed3220_package_bugs",
+      "agents_graphify_feature_implementation_51ed3220_package_bugs_url",
+      "agents_graphify_feature_implementation_51ed3220_package_description",
+      "agents_graphify_feature_implementation_51ed3220_package_homepage",
+      "agents_graphify_feature_implementation_51ed3220_package_keywords",
+      "agents_graphify_feature_implementation_51ed3220_package_license",
+      "agents_graphify_feature_implementation_51ed3220_package_main",
+      "agents_graphify_feature_implementation_51ed3220_package_name",
+      "agents_graphify_feature_implementation_51ed3220_package_repository",
+      "agents_graphify_feature_implementation_51ed3220_package_repository_type",
+      "agents_graphify_feature_implementation_51ed3220_package_repository_url",
+      "agents_graphify_feature_implementation_51ed3220_package_scripts",
+      "agents_graphify_feature_implementation_51ed3220_package_scripts_dev",
+      "agents_graphify_feature_implementation_51ed3220_package_scripts_test",
+      "agents_graphify_feature_implementation_51ed3220_package_type",
+      "agents_graphify_feature_implementation_51ed3220_package_version",
+      "apollo_server_dep",
+      "graphql_dep",
+      "package_json",
+      "postgres_dep",
+      "readme"
+    ],
+    "1": [
+      "resolvers_itemres_itemresolvers",
+      "resolvers_subres_pubsub",
+      "resolvers_subres_subres",
+      "resolvers_userres_userresolvers",
+      "server_db_indb",
+      "server_db_js",
+      "server_db_pool",
+      "server_mutations_js",
+      "server_mutations_resolvers",
+      "server_resolvers_itemres_js",
+      "server_resolvers_subres_js",
+      "server_resolvers_userres_js",
+      "server_schemas_js",
+      "server_server_app",
+      "server_server_httpserver",
+      "server_server_js",
+      "server_server_schema",
+      "server_server_server",
+      "server_server_servercleanup",
+      "server_server_wsserver"
+    ],
+    "2": [
+      "constants_js",
+      "galaxyhud_jsx",
+      "src_constants_colors",
+      "src_constants_icons",
+      "src_constants_orbits",
+      "src_galaxyhud_galaxyhud",
+      "src_galaxyhud_toplanet",
+      "src_useclock_useclock",
+      "src_useflyto_useflyto",
+      "src_useitems_useitems",
+      "useclock_js",
+      "useflyto_js",
+      "useitems_js"
+    ],
+    "3": [
+      "apollo_express_integration",
+      "db_pool",
+      "itemres_resolvers",
+      "mutations_resolvers",
+      "pubsub_eventbus",
+      "schemas_typedefs",
+      "server_apolloserver",
+      "subres_subscriptions",
+      "subscription_operations",
+      "type_item",
+      "type_user",
+      "userres_resolvers",
+      "websocket_subscriptions"
+    ],
+    "4": [
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_apollo_server",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_as_integrations_express5",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_express",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_subscriptions",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_merge",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_tools_schema",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_graphql_ws",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_pg",
+      "agents_graphify_feature_implementation_51ed3220_package_dependencies_ws",
+      "graphql_tools_merge"
+    ],
+    "5": [
+      "graphql_schema_ts",
+      "item_type",
+      "mutation_operations",
+      "query_operations",
+      "resolvers_ts",
+      "server_ts",
+      "types_ts",
+      "user_type"
+    ],
+    "6": [
+      "app_service",
+      "docker_compose_config",
+      "docker_compose_yml",
+      "postgres_service"
+    ],
+    "7": [
+      "galaxy_jsx",
+      "planet_jsx",
+      "src_galaxy_galaxy",
+      "src_planet_planet"
+    ],
+    "8": [
+      "moduledetail_jsx",
+      "src_moduledetail_fact",
+      "src_moduledetail_moduledetail"
+    ],
+    "9": [
+      "dockerfile",
+      "node_runtime"
+    ],
+    "10": [
+      "graphqlclient_js",
+      "src_graphqlclient_graphqlrequest"
+    ],
+    "11": [
+      "src_starfield_starfield",
+      "starfield_jsx"
+    ],
+    "12": [
+      "src_topbar_topbar",
+      "topbar_jsx"
+    ],
+    "13": [
+      "package_graphql_jsproj"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09523809523809523,
+    "1": 0.16842105263157894,
+    "2": 0.19230769230769232,
+    "3": 0.21794871794871795,
+    "4": 0.16666666666666666,
+    "5": 0.35714285714285715,
+    "6": 0.6666666666666666,
+    "7": 0.5,
+    "8": 0.6666666666666666,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
+  },
+  "gods": [
+    {
+      "id": "graphql_schema_ts",
+      "label": "GraphQL Type Definitions",
+      "degree": 5
+    },
+    {
+      "id": "itemres_resolvers",
+      "label": "Item Resolvers",
+      "degree": 5
+    },
+    {
+      "id": "userres_resolvers",
+      "label": "User Resolvers",
+      "degree": 5
+    },
+    {
+      "id": "resolvers_ts",
+      "label": "Resolvers",
+      "degree": 4
+    },
+    {
+      "id": "mutations_resolvers",
+      "label": "Merged Resolvers",
+      "degree": 4
+    },
+    {
+      "id": "server_apolloserver",
+      "label": "Apollo Server Setup",
+      "degree": 4
+    },
+    {
+      "id": "src_galaxyhud_galaxyhud",
+      "label": "GalaxyHUD()",
+      "degree": 4
+    },
+    {
+      "id": "agents_graphify_feature_implementation_51ed3220_package_scripts",
+      "label": "scripts",
+      "degree": 3
+    },
+    {
+      "id": "agents_graphify_feature_implementation_51ed3220_package_repository",
+      "label": "repository",
+      "degree": 3
+    },
+    {
+      "id": "server_db_pool",
+      "label": "pool",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "GraphQL-JsProj README",
+      "target": "Apollo Server",
+      "source_files": [
+        "README.md",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "cites",
+      "why": "crosses file types (doc ↔ code); connects across different repos/directories"
+    },
+    {
+      "source": "GraphQL-JsProj README",
+      "target": "PostgreSQL",
+      "source_files": [
+        "README.md",
+        "package.json"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "cites",
+      "why": "crosses file types (doc ↔ code); connects across different repos/directories"
+    },
+    {
+      "source": "Apollo Server",
+      "target": "Server Entry Point",
+      "source_files": [
+        "package.json",
+        "server/server.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "GalaxyHUD()",
+      "target": "useClock()",
+      "source_files": [
+        "GalaxyHUD.jsx",
+        "useClock.js"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "GalaxyHUD()",
+      "target": "useFlyTo()",
+      "source_files": [
+        "GalaxyHUD.jsx",
+        "useFlyTo.js"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `Community 4` to `Community 0`?",
+      "why": "High betweenness centrality (0.060) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Apollo Server` connect `Community 0` to `Community 5`?",
+      "why": "High betweenness centrality (0.049) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Server Entry Point` connect `Community 5` to `Community 0`?",
+      "why": "High betweenness centrality (0.042) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `version`, `description` to the rest of the system?",
+      "why": "38 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
