@@ -1,3 +1,4 @@
+
 services:
   db:
     image: postgres:15   #this is the image from wich the container is creating
@@ -9,18 +10,20 @@ services:
       POSTGRES_DB: mydb
     ports:
       - "5432:5432"
-    volumes:  #where in my docker it stores the data 
+    volumes:
       - db_data:/var/lib/postgresql/data
+
   app:
     build: .
     container_name: Backend
-    restart: always  #if a problem it should always restart
-    ports:  #machine port: docker port
+    restart: always
+    ports:
       - "4000:4000"
     depends_on:
       - db
-    environment:  #env variables 
+    environment:
       - dbhost=db
+
   frontend:
     build:
       context: .

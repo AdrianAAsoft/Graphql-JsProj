@@ -8,6 +8,10 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { WebSocketServer } from "ws";
 import { useServer } from 'graphql-ws/use/ws';
 import express from "express";
+<<<<<<< HEAD
+=======
+import cors from "cors";
+>>>>>>> d1df3aa (Updatesthink)
 import http from "http";
 import { inDb } from "./db.js";
 import { typeDefs } from "./schemas.js";
@@ -23,6 +27,12 @@ const httpServer = http.createServer(app);
 // WebSocket server for subscriptions
 const wsServer = new WebSocketServer({ server: httpServer, path: "/graphql" });
 
+<<<<<<< HEAD
+=======
+// attach graphql-ws server and keep cleanup handle available for Apollo shutdown
+let serverCleanup = useServer({ schema }, wsServer);
+
+>>>>>>> d1df3aa (Updatesthink)
 const server = new ApolloServer({
   schema,
   plugins: [
@@ -45,14 +55,22 @@ await server.start();
 wsServer.on('connection', () => {
   console.log('WebSocket client connected');
 });
+<<<<<<< HEAD
+=======
+app.use(cors());
+>>>>>>> d1df3aa (Updatesthink)
 app.use("/graphql", express.json(), expressMiddleware(server));
 
 httpServer.listen(4000, '0.0.0.0', () => {
   console.log('Server listening on port 4000');
+<<<<<<< HEAD
   
   // move this here
   const serverCleanup = useServer({ schema }, wsServer);
   
+=======
+
+>>>>>>> d1df3aa (Updatesthink)
 }).on('error', (err) => {
   console.error('Server error:', err);
 });
