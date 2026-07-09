@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true, // needed so the vite dev server is reachable from outside the container
-    port: 5173,
+    port: 5573,
   },
 });

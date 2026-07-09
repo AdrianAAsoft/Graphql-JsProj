@@ -1,7 +1,7 @@
 import { Zap, Navigation, Radio, Shield, Radar, Rocket, HeartPulse, Thermometer } from "lucide-react";
 
 // change this if your backend runs elsewhere (docker host, deployed url, etc.)
-export const API_URL = (typeof import !== 'undefined' && import.meta && import.meta.env && import.meta.env.VITE_API_URL) ? import.meta.env.VITE_API_URL : "http://localhost:4000/graphql";
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/graphql";
 
 export const ICONS = [Zap, Navigation, Radio, Shield, Radar, Rocket, HeartPulse, Thermometer];
 export const COLORS = ["#4ce7ff", "#7dffb0", "#ffab4d", "#ff6b6b", "#c792ff", "#ffe14d", "#4dffd8", "#ff944d"];

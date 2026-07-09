@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TopBar({ status, planetCount, clock }) {
+export default function TopBar({ status, planetCount, clock, onAddClick }) {
   const statusLine =
     status === "loading" ? "SYNCING WITH CORE..." :
     status === "error" ? "UPLINK FAILED" :
@@ -20,9 +20,21 @@ export default function TopBar({ status, planetCount, clock }) {
           <div className="g-label" style={{ fontSize: 9, color: "#1c5b6e" }}>{statusLine}</div>
         </div>
       </div>
-      <div className="g-label" style={{ fontSize: 11, color: "#4ce7ff", textAlign: "right" }}>
-        <div>● {onlineLine}</div>
-        <div style={{ color: "#eafcff" }}>{clock}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <button
+          className="g-label"
+          onClick={onAddClick}
+          style={{
+            background: "transparent", color: "#4ce7ff", border: "1px solid rgba(76,231,255,.3)",
+            padding: "8px 14px", fontSize: 11, letterSpacing: 1.5, cursor: "pointer",
+          }}
+        >
+          + ADD MODULE
+        </button>
+        <div className="g-label" style={{ fontSize: 11, color: "#4ce7ff", textAlign: "right" }}>
+          <div>● {onlineLine}</div>
+          <div style={{ color: "#eafcff" }}>{clock}</div>
+        </div>
       </div>
     </div>
   );

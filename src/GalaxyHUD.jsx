@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import "./hud.css";
 
 import { ICONS, COLORS, ORBITS, C } from "./constants.js";
@@ -10,6 +10,7 @@ import Starfield from "./components/Starfield.jsx";
 import TopBar from "./components/TopBar.jsx";
 import Galaxy from "./components/Galaxy.jsx";
 import ModuleDetail from "./components/ModuleDetail.jsx";
+import AddModuleForm from "./components/AddModuleForm.jsx";
 
 // turns a raw db item into a planet with a position, icon and color
 function toPlanet(item, i, total) {
@@ -29,8 +30,9 @@ function toPlanet(item, i, total) {
 }
 
 export default function GalaxyHUD() {
-  const { items, status } = useItems();
+  const { items, status, refetch } = useItems();
   const clock = useClock();
+  const [showAddForm, setShowAddForm] = useState(false);
 
   const planets = useMemo(
     () => items.map((item, i) => toPlanet(item, i, items.length)),
@@ -43,14 +45,21 @@ export default function GalaxyHUD() {
   return (
     <div
       style={{
-        position: "relative", width: "100%", minHeight: 640,
+        position: "relative", width: "100vw", height: "100vh",
         background: "radial-gradient(ellipse at 50% 40%,#0a0a1c 0%,#08081a 45%,#020208 100%)",
         color: "#eafcff", fontFamily: "'Rajdhani', sans-serif",
-        overflow: "hidden", borderRadius: 12,
+        overflow: "hidden",
       }}
     >
       <Starfield />
-      <TopBar status={status} planetCount={planets.length} clock={clock} />
+      <TopBar status={status} planetCount={planets.length} clock={clock} onAddClick={() => setShowAddForm((v) => !v)} />
+
+      {showAddForm && (
+        <AddModuleForm
+          onAdded={() => { setShowAddForm(false); refetch(); }}
+          onClose={() => setShowAddForm(false)}
+        />
+      )}
 
       {status === "error" && (
         <div className="g-label" style={{ position: "relative", zIndex: 3, textAlign: "center", marginTop: 120, color: "#ff6b6b", fontSize: 12 }}>
