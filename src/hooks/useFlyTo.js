@@ -17,6 +17,13 @@ export function useFlyTo(planets) {
     setTimeout(() => setDetailVisible(true), 650);
   };
 
+  // switch worlds while already zoomed in, no fly-out animation
+  const jumpTo = (i) => {
+    setActiveModule(planets[i]);
+    setZoomedIndex(i);
+    setDetailVisible(true);
+  };
+
   const backToMap = () => {
     setDetailVisible(false);
     setTimeout(() => setZoomedIndex(null), 300);
@@ -26,6 +33,6 @@ export function useFlyTo(planets) {
   return {
     hovered, setHovered,
     zoomedIndex, zoomOrigin, detailVisible,
-    activeModule, flyTo, backToMap,
+    activeModule, flyTo, jumpTo, backToMap,
   };
 }

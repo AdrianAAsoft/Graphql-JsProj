@@ -17,10 +17,13 @@ services:
     build: .
     container_name: Backend
     restart: always
+    command: ["node", "--watch", "server/server.js"]
     ports:
       - "4000:4000"
     depends_on:
       - db
+    volumes:
+      - ./server:/app/server # live backend source from the host, nothing else
     environment:
       - dbhost=db
 
@@ -34,8 +37,12 @@ services:
       - "5573:5573"
     depends_on:
       - app
+    volumes:
+      - .:/app            # live source from the host
+      - /app/node_modules # keep the image's own node_modules
     environment:
       - VITE_API_URL=http://localhost:4000/graphql
+      - CHOKIDAR_USEPOLLING=true # file-change events don't cross the Windows bind mount
 
 volumes:
   db_data:

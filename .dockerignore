@@ -1,0 +1,9 @@
+node_modules
+dist
+graphify-out
+.git
+*.md
+LICENSE
+docker-compose.yml
+Dockerfile
+frontend.Dockerfile

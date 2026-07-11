@@ -6,5 +6,8 @@ export default defineConfig({
   server: {
     host: true, // needed so the vite dev server is reachable from outside the container
     port: 5573,
+    watch: {
+      usePolling: true, // file-change events don't cross the Windows->container bind mount
+    },
   },
 });
