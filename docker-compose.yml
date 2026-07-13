@@ -26,6 +26,7 @@ services:
       - ./server:/app/server # live backend source from the host, nothing else
     environment:
       - dbhost=db
+      - JWT_SECRET=${JWT_SECRET:-dev-only-change-me-in-production}
 
   frontend:
     build:

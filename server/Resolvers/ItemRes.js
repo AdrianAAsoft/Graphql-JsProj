@@ -1,22 +1,26 @@
-import { pool } from '../db.js'; 
-import {pubsub} from './SubRes.js'
+import { pool } from '../db.js';
+import {pubsub} from './subRes.js'
+import { requireAuth } from '../auth.js'
 
 export const Itemresolvers = {
     Query: {
-        items: async () => {
+        items: async (_, __, ctx) => {
+            requireAuth(ctx);
             const res = await pool.query("select * from items");
             return res.rows;
         },
     },
     Mutation: {
-        createItm: async (_, {descript, price, quantity}) => {
+        createItm: async (_, {descript, price, quantity}, ctx) => {
+            requireAuth(ctx);
             const res = await pool.query("Insert into items(description,price,quantity) VALUES($1,$2,$3) returning *",
                 [descript, price,quantity]
             );
             pubsub.publish("itemCreated", {itemCreated: res.rows[0]})
             return res.rows[0];
         },
-        updateItm: async (_, { id, descript, price, quantity }) => {
+        updateItm: async (_, { id, descript, price, quantity }, ctx) => {
+            requireAuth(ctx);
             const res = await pool.query(`Update items set        
                                     description = COALESCE($1, description),
                                     price = COALESCE($2, price),

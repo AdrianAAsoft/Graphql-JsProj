@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowLeft, Package, Users as UsersIcon, Activity, ScrollText } from "lucide-react";
-import { graphqlRequest, CREATE_ITEM_MUTATION, CREATE_USER_MUTATION } from "../api/graphqlClient.js";
+import { graphqlRequest, CREATE_ITEM_MUTATION, UPDATE_ITEM_MUTATION, CREATE_USER_MUTATION, SPECIFIC_USER_QUERY } from "../api/graphqlClient.js";
 
 const inputStyle = {
   background: "rgba(8,20,34,.7)", border: "1px solid rgba(76,231,255,.3)",
@@ -89,6 +89,10 @@ function ItemsSection({ items, refetchItems: refetch, onBack }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
 
+  // per-row edit (updateItm)
+  const [editId, setEditId] = useState(null);
+  const [edit, setEdit] = useState({ descript: "", price: "", quantity: "" });
+
   const submit = async (e) => {
     e.preventDefault();
     setBusy(true); setError(null);
@@ -100,6 +104,24 @@ function ItemsSection({ items, refetchItems: refetch, onBack }) {
       refetch();
     } catch (err) { setError(err.message); }
     finally { setBusy(false); }
+  };
+
+  const startEdit = (it) => {
+    setEditId(it.id);
+    setEdit({ descript: it.description || "", price: it.price ?? "", quantity: it.quantity });
+  };
+
+  const saveEdit = async () => {
+    try {
+      await graphqlRequest(UPDATE_ITEM_MUTATION, {
+        id: editId,
+        descript: edit.descript,
+        price: edit.price === "" ? null : Number(edit.price),
+        quantity: edit.quantity === "" ? null : Number(edit.quantity),
+      });
+      setEditId(null);
+      refetch();
+    } catch (err) { setError(err.message); }
   };
 
   return (
@@ -119,15 +141,30 @@ function ItemsSection({ items, refetchItems: refetch, onBack }) {
       <TableControls pf={pf} color="#4ce7ff" placeholder="FILTER CARGO..." />
 
       <div className="j-panel" style={{ padding: "6px 18px" }}>
-        <div className="g-label" style={{ display: "grid", gridTemplateColumns: "50px 1fr 90px 60px", gap: 10, fontSize: 10, color: "#4ce7ff", letterSpacing: 2, padding: "10px 0", borderBottom: "1px solid rgba(76,231,255,.2)" }}>
-          <span>ID</span><span>DESIGNATION</span><span>PRICE</span><span>QTY</span>
+        <div className="g-label" style={{ display: "grid", gridTemplateColumns: "50px 1fr 90px 60px 90px", gap: 10, fontSize: 10, color: "#4ce7ff", letterSpacing: 2, padding: "10px 0", borderBottom: "1px solid rgba(76,231,255,.2)" }}>
+          <span>ID</span><span>DESIGNATION</span><span>PRICE</span><span>QTY</span><span></span>
         </div>
         {pf.view.map((it, i) => (
-          <div key={it.id} className="g-fact j-row-in" style={{ display: "grid", gridTemplateColumns: "50px 1fr 90px 60px", gap: 10, animationDelay: `${i * 60}ms` }}>
+          <div key={it.id} className="g-fact j-row-in" style={{ display: "grid", gridTemplateColumns: "50px 1fr 90px 60px 90px", gap: 10, alignItems: "center", animationDelay: `${i * 60}ms` }}>
             <span style={{ color: "#4ce7ff", fontFamily: "'JetBrains Mono',monospace", fontSize: 11 }}>#{it.id}</span>
-            <span style={{ fontSize: 14 }}>{(it.description || "").toUpperCase()}</span>
-            <span style={{ fontSize: 13, color: "#7dffb0" }}>{it.price != null ? `$${it.price}` : "—"}</span>
-            <span style={{ fontSize: 13 }}>{it.quantity}</span>
+            {editId === it.id ? (
+              <>
+                <input style={{ ...inputStyle, padding: "4px 8px" }} value={edit.descript} onChange={(e) => setEdit({ ...edit, descript: e.target.value })} />
+                <input style={{ ...inputStyle, padding: "4px 8px" }} type="number" step="0.01" value={edit.price} onChange={(e) => setEdit({ ...edit, price: e.target.value })} />
+                <input style={{ ...inputStyle, padding: "4px 8px" }} type="number" value={edit.quantity} onChange={(e) => setEdit({ ...edit, quantity: e.target.value })} />
+                <span style={{ display: "flex", gap: 6 }}>
+                  <button className="g-label" onClick={saveEdit} style={{ ...inputStyle, padding: "4px 8px", cursor: "pointer", color: "#7dffb0", fontSize: 10 }}>SAVE</button>
+                  <button className="g-label" onClick={() => setEditId(null)} style={{ ...inputStyle, padding: "4px 8px", cursor: "pointer", fontSize: 10 }}>✕</button>
+                </span>
+              </>
+            ) : (
+              <>
+                <span style={{ fontSize: 14 }}>{(it.description || "").toUpperCase()}</span>
+                <span style={{ fontSize: 13, color: "#7dffb0" }}>{it.price != null ? `$${it.price}` : "—"}</span>
+                <span style={{ fontSize: 13 }}>{it.quantity}</span>
+                <button className="g-label" onClick={() => startEdit(it)} style={{ ...inputStyle, padding: "4px 8px", cursor: "pointer", color: "#4ce7ff", fontSize: 10 }}>EDIT</button>
+              </>
+            )}
           </div>
         ))}
         {pf.filtered.length === 0 && (
@@ -147,6 +184,9 @@ function UsersSection({ users, items, refetchUsers: refetch, onBack }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
 
+  // full detail of a selected crew member (SpecificUsers)
+  const [detail, setDetail] = useState(null);
+
   const submit = async (e) => {
     e.preventDefault();
     setBusy(true); setError(null);
@@ -156,6 +196,14 @@ function UsersSection({ users, items, refetchUsers: refetch, onBack }) {
       refetch();
     } catch (err) { setError(err.message); }
     finally { setBusy(false); }
+  };
+
+  const openDetail = async (id) => {
+    setDetail({ loading: true });
+    try {
+      const d = await graphqlRequest(SPECIFIC_USER_QUERY, { id });
+      setDetail(d.SpecificUsers);
+    } catch (err) { setError(err.message); setDetail(null); }
   };
 
   return (
@@ -183,7 +231,7 @@ function UsersSection({ users, items, refetchUsers: refetch, onBack }) {
           <span>ID</span><span>CALLSIGN</span><span>EQUIPMENT</span>
         </div>
         {pf.view.map((u, i) => (
-          <div key={u.id} className="g-fact j-row-in" style={{ display: "grid", gridTemplateColumns: "50px 1fr 1fr", gap: 10, animationDelay: `${i * 60}ms` }}>
+          <div key={u.id} onClick={() => openDetail(u.id)} className="g-fact g-hit j-row-in" style={{ display: "grid", gridTemplateColumns: "50px 1fr 1fr", gap: 10, cursor: "pointer", animationDelay: `${i * 60}ms` }}>
             <span style={{ color: "#7dffb0", fontFamily: "'JetBrains Mono',monospace", fontSize: 11 }}>#{u.id}</span>
             <span style={{ fontSize: 14 }}>{(u.name || "").toUpperCase()}</span>
             <span style={{ fontSize: 13, color: "#7fb8c9" }}>{u.item ? (u.item.description || "").toUpperCase() : "—"}</span>
@@ -195,6 +243,27 @@ function UsersSection({ users, items, refetchUsers: refetch, onBack }) {
           </div>
         )}
       </div>
+
+      {detail && (
+        <div className="j-panel g-label j-row-in" style={{ marginTop: 14, padding: "14px 18px", fontSize: 12 }}>
+          {detail.loading ? (
+            <span style={{ color: "#7fb8c9" }}>QUERYING PERSONNEL FILE...</span>
+          ) : (
+            <>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+                <span style={{ color: "#7dffb0", letterSpacing: 2 }}>PERSONNEL FILE #{detail.id}</span>
+                <span onClick={() => setDetail(null)} style={{ cursor: "pointer", color: "#7fb8c9" }}>✕</span>
+              </div>
+              <div style={{ color: "#cfe3ee", lineHeight: 1.9 }}>
+                <div>NAME // {(detail.name || "—").toUpperCase()}</div>
+                <div>CALLSIGN // {detail.username || "—"}</div>
+                <div>MAIL // {detail.email || "—"}</div>
+                <div>EQUIPMENT // {detail.item ? (detail.item.description || "").toUpperCase() : "NONE"}</div>
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </>
   );
 }
@@ -224,21 +293,28 @@ function SystemSection({ items, users, itemsStatus, usersStatus, operator, onBac
   );
 }
 
+// format an ISO timestamp into HH:MM:SS for the log table
+function logTime(iso) {
+  const d = new Date(iso);
+  return isNaN(d) ? "--:--:--" : d.toTimeString().slice(0, 8);
+}
+
 function LogSection({ events, onBack }) {
-  const newestFirst = events.slice().reverse();
-  const pf = usePagedFilter(newestFirst, (ev) => ev.msg);
+  // events come from the DB already newest-first
+  const pf = usePagedFilter(events, (ev) => ev.message);
   return (
     <>
-      <PanelHeader icon={ScrollText} color="#ff6b6b" title="EVENT LOG" subtitle={`${events.length} EVENTS THIS SESSION`} onBack={onBack} />
+      <PanelHeader icon={ScrollText} color="#ff6b6b" title="EVENT LOG" subtitle={`${events.length} EVENTS ON RECORD`} onBack={onBack} />
       <TableControls pf={pf} color="#ff6b6b" placeholder="FILTER EVENTS..." />
       <div className="j-panel" style={{ padding: "6px 18px" }}>
-        <div className="g-label" style={{ display: "grid", gridTemplateColumns: "90px 1fr", gap: 10, fontSize: 10, color: "#ff6b6b", letterSpacing: 2, padding: "10px 0", borderBottom: "1px solid rgba(76,231,255,.2)" }}>
-          <span>TIME</span><span>EVENT</span>
+        <div className="g-label" style={{ display: "grid", gridTemplateColumns: "90px 70px 1fr", gap: 10, fontSize: 10, color: "#ff6b6b", letterSpacing: 2, padding: "10px 0", borderBottom: "1px solid rgba(76,231,255,.2)" }}>
+          <span>TIME</span><span>LEVEL</span><span>EVENT</span>
         </div>
         {pf.view.map((ev, i) => (
-          <div key={`${ev.at}-${ev.msg}-${i}`} className="g-fact j-row-in" style={{ display: "grid", gridTemplateColumns: "90px 1fr", gap: 10, animationDelay: `${Math.min(i, 10) * 50}ms` }}>
-            <span style={{ color: "#ff6b6b", fontFamily: "'JetBrains Mono',monospace", fontSize: 11 }}>{ev.at}</span>
-            <span className="g-label" style={{ fontSize: 12, color: "#cfe3ee" }}>{ev.msg}</span>
+          <div key={ev.id} className="g-fact j-row-in" style={{ display: "grid", gridTemplateColumns: "90px 70px 1fr", gap: 10, animationDelay: `${Math.min(i, 10) * 50}ms` }}>
+            <span style={{ color: "#ff6b6b", fontFamily: "'JetBrains Mono',monospace", fontSize: 11 }}>{logTime(ev.created_at)}</span>
+            <span className="g-label" style={{ fontSize: 10, color: ev.level === "auth" ? "#7dffb0" : "#7fb8c9" }}>{(ev.level || "info").toUpperCase()}</span>
+            <span className="g-label" style={{ fontSize: 12, color: "#cfe3ee" }}>{ev.message}</span>
           </div>
         ))}
         {pf.filtered.length === 0 && (

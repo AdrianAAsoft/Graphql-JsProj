@@ -13,6 +13,7 @@ import http from "http";
 import { inDb } from "./db.js";
 import { typeDefs } from "./schemas.js";
 import { resolvers } from "./mutations.js";
+import { verifyToken } from "./auth.js";
 
 await inDb();
 //Creates the server - Here’s my schema and logic — expose it as an API
@@ -29,6 +30,8 @@ let serverCleanup = useServer({ schema }, wsServer);
 
 const server = new ApolloServer({
   schema,
+  // never ship internal stacktraces / file paths to clients
+  includeStacktraceInErrorResponses: false,
   plugins: [
     ApolloServerPluginLandingPageLocalDefault({ footer: false }),
     {
@@ -50,7 +53,15 @@ wsServer.on('connection', () => {
   console.log('WebSocket client connected');
 });
 app.use(cors());
-app.use("/graphql", express.json(), expressMiddleware(server));
+app.use("/graphql", express.json(), expressMiddleware(server, {
+  // read the Bearer token off each request and expose the user to resolvers
+  context: async ({ req }) => {
+    const header = req.headers.authorization || "";
+    const token = header.startsWith("Bearer ") ? header.slice(7) : null;
+    const user = token ? verifyToken(token) : null;
+    return { user };
+  },
+}));
 
 httpServer.listen(4000, '0.0.0.0', () => {
   console.log('Server listening on port 4000');

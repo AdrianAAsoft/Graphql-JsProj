@@ -7,6 +7,7 @@ import { useUsers } from "./hooks/useUsers.js";
 import { useClock } from "./hooks/useClock.js";
 import { useFlyTo } from "./hooks/useFlyTo.js";
 import { useOrbitTime } from "./hooks/useOrbitTime.js";
+import { useLogs } from "./hooks/useLogs.js";
 import { subscribe, ITEM_CREATED_SUB, USER_UPDATED_SUB } from "./api/subscriptions.js";
 
 import Starfield from "./components/Starfield.jsx";
@@ -44,23 +45,19 @@ function toWorld(s, i, counts, t) {
   };
 }
 
-export default function GalaxyHUD({ operator = "COMMANDER" }) {
+export default function GalaxyHUD({ operator = "COMMANDER", onLogout }) {
   const { items, status: itemsStatus, refetch: refetchItems } = useItems();
   const { users, status: usersStatus, refetch: refetchUsers } = useUsers();
   const clock = useClock();
 
-  // session event log, shown in the LOG world
-  const [events, setEvents] = useState([]);
-  const logEvent = useCallback(
-    (msg) => setEvents((ev) => [...ev, { at: new Date().toTimeString().slice(0, 8), msg }]),
-    []
-  );
+  // persistent event log (DB-backed), shown in the LOG world
+  const { logs, writeLog } = useLogs();
 
   // shared clock for orbital motion; freezes while aiming at a world or zoomed in
   const orbitPausedRef = useRef(false);
   const t = useOrbitTime(orbitPausedRef);
 
-  const counts = { items: items.length, users: users.length, log: events.length };
+  const counts = { items: items.length, users: users.length, log: logs.length };
   const worlds = SECTIONS.map((s, i) => toWorld(s, i, counts, t));
 
   const { hovered, setHovered, zoomedIndex, zoomOrigin, detailVisible, activeModule, flyTo, jumpTo, backToMap } =
@@ -78,21 +75,21 @@ export default function GalaxyHUD({ operator = "COMMANDER" }) {
   };
 
   useEffect(() => {
-    logEvent(`UPLINK ESTABLISHED // OPERATOR ${operator}`);
-  }, [logEvent, operator]);
+    writeLog(`UPLINK ESTABLISHED // OPERATOR ${operator}`);
+  }, [writeLog, operator]);
 
   useEffect(() => {
-    if (itemsStatus === "ok") logEvent(`CARGO MANIFEST SYNCED // ${items.length} ITEMS`);
-  }, [itemsStatus, items.length, logEvent]);
+    if (itemsStatus === "ok") writeLog(`CARGO MANIFEST SYNCED // ${items.length} ITEMS`);
+  }, [itemsStatus, items.length, writeLog]);
 
   useEffect(() => {
-    if (usersStatus === "ok") logEvent(`CREW ROSTER SYNCED // ${users.length} PERSONNEL`);
-  }, [usersStatus, users.length, logEvent]);
+    if (usersStatus === "ok") writeLog(`CREW ROSTER SYNCED // ${users.length} PERSONNEL`);
+  }, [usersStatus, users.length, writeLog]);
 
   const activeSection = activeModule?.section;
   useEffect(() => {
-    if (activeSection) logEvent(`ENGAGED SECTOR // ${activeSection.toUpperCase()}`);
-  }, [activeSection, logEvent]);
+    if (activeSection) writeLog(`ENGAGED SECTOR // ${activeSection.toUpperCase()}`);
+  }, [activeSection, writeLog]);
 
   // live feed: react to changes made by anyone, not just this browser
   const [toast, setToast] = useState(null);
@@ -105,14 +102,14 @@ export default function GalaxyHUD({ operator = "COMMANDER" }) {
     const offItem = subscribe(ITEM_CREATED_SUB, (d) => {
       const it = d.itemCreated;
       if (!it) return;
-      logEvent(`INCOMING TRANSMISSION // ITEM "${(it.description || "").toUpperCase()}" DEPLOYED`);
+      writeLog(`INCOMING TRANSMISSION // ITEM "${(it.description || "").toUpperCase()}" DEPLOYED`);
       announce(`INCOMING TRANSMISSION // NEW CARGO: ${(it.description || "").toUpperCase()}`);
       refetchItems();
     });
     const offUser = subscribe(USER_UPDATED_SUB, (d) => {
       const u = d.usrUpdated;
       if (!u) return;
-      logEvent(`INCOMING TRANSMISSION // CREW RECORD "${(u.name || "").toUpperCase()}" UPDATED`);
+      writeLog(`INCOMING TRANSMISSION // CREW RECORD "${(u.name || "").toUpperCase()}" UPDATED`);
       announce(`INCOMING TRANSMISSION // CREW UPDATE: ${(u.name || "").toUpperCase()}`);
       refetchUsers();
     });
@@ -120,7 +117,7 @@ export default function GalaxyHUD({ operator = "COMMANDER" }) {
       offItem();
       offUser();
     };
-  }, [logEvent, announce, refetchItems, refetchUsers]);
+  }, [writeLog, announce, refetchItems, refetchUsers]);
 
   // iron-man style parallax: the hologram tilts toward your cursor
   const frameRef = useRef(null);
@@ -157,7 +154,7 @@ export default function GalaxyHUD({ operator = "COMMANDER" }) {
       <div className="j-scanline" />
       <div className="j-crt" />
 
-      <TopBar status={status} planetCount={worlds.length} clock={clock} operator={operator} />
+      <TopBar status={status} planetCount={worlds.length} clock={clock} operator={operator} onLogout={onLogout} />
 
       {toast && (
         <div
@@ -214,7 +211,7 @@ export default function GalaxyHUD({ operator = "COMMANDER" }) {
         refetchItems={refetchItems}
         refetchUsers={refetchUsers}
         operator={operator}
-        events={events}
+        events={logs}
       />
     </div>
   );

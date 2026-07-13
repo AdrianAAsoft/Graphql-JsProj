@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Starfield from "./Starfield.jsx";
+import { graphqlRequest, LOGIN_MUTATION, REGISTER_MUTATION } from "../api/graphqlClient.js";
 
 const BOOT_LINES = [
   "> INITIALIZING J.A.R.V.I.S CORE .............. OK",
@@ -41,19 +42,41 @@ function ReactorRing() {
 }
 
 export default function LoginScreen({ onLogin }) {
-  const [callsign, setCallsign] = useState("");
-  const [passkey, setPasskey] = useState("");
-  const [phase, setPhase] = useState("login"); // login | boot
+  const [mode, setMode] = useState("login"); // login | register
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [phase, setPhase] = useState("form"); // form | boot
   const [bootStep, setBootStep] = useState(0);
+  const [error, setError] = useState(null);
+  const [busy, setBusy] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const runBoot = (payload) => {
     setPhase("boot");
-    // reveal boot lines one by one, then enter
     BOOT_LINES.forEach((_, i) => {
       setTimeout(() => setBootStep(i + 1), 450 * (i + 1));
     });
-    setTimeout(() => onLogin(callsign.trim() || "COMMANDER"), 450 * (BOOT_LINES.length + 1) + 400);
+    setTimeout(() => onLogin(payload), 450 * (BOOT_LINES.length + 1) + 400);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setBusy(true);
+    try {
+      // register first if needed, then log in to obtain the JWT
+      if (mode === "register") {
+        await graphqlRequest(REGISTER_MUTATION, { name: name.trim() || username, username, password });
+      }
+      const d = await graphqlRequest(LOGIN_MUTATION, { username, password });
+      runBoot(d.login); // { token, user }
+    } catch (err) {
+      // backend sends "Invalid credentials" on bad login; duplicate username surfaces here on register
+      if (/duplicate|unique/i.test(err.message)) setError("CALLSIGN ALREADY REGISTERED");
+      else if (mode === "register") setError("REGISTRATION FAILED");
+      else setError("ACCESS DENIED // INVALID CREDENTIALS");
+      setBusy(false);
+    }
   };
 
   return (
@@ -70,24 +93,39 @@ export default function LoginScreen({ onLogin }) {
       <div className="j-scanline" />
       <div className="j-crt" />
 
-      {phase === "login" && (
+      {phase === "form" && (
         <div className="j-panel" style={{ position: "relative", zIndex: 3, width: 380, padding: "34px 38px 30px" }}>
           <ReactorRing />
           <div className="j-flicker" style={{ textAlign: "center", marginTop: 14, fontWeight: 700, fontSize: 22, letterSpacing: 6 }}>
             J.A.R.V.I.S
           </div>
           <div className="g-label" style={{ textAlign: "center", fontSize: 9, color: "#2e8fa8", marginBottom: 24, letterSpacing: 3 }}>
-            ORBITAL SYSTEMS INTERFACE // v2.0
+            {mode === "login" ? "ORBITAL SYSTEMS INTERFACE // v2.0" : "NEW OPERATOR REGISTRATION"}
           </div>
 
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            <input className="j-input" placeholder="CALLSIGN" value={callsign} onChange={(e) => setCallsign(e.target.value)} autoFocus />
-            <input className="j-input" type="password" placeholder="PASSKEY" value={passkey} onChange={(e) => setPasskey(e.target.value)} />
-            <button className="j-btn" type="submit">AUTHENTICATE</button>
+            {mode === "register" && (
+              <input className="j-input" placeholder="OPERATOR NAME" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
+            )}
+            <input className="j-input" placeholder="CALLSIGN" value={username} onChange={(e) => setUsername(e.target.value)} autoFocus={mode === "login"} required />
+            <input className="j-input" type="password" placeholder="PASSKEY" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <button className="j-btn" type="submit" disabled={busy}>
+              {busy ? "..." : mode === "login" ? "AUTHENTICATE" : "REGISTER"}
+            </button>
           </form>
 
-          <div className="g-label" style={{ marginTop: 18, fontSize: 9, color: "#1c5b6e", textAlign: "center" }}>
-            BIOMETRIC BYPASS ACTIVE <span className="j-blink">▊</span>
+          {error && (
+            <div className="g-label" style={{ marginTop: 14, fontSize: 10, color: "#ff6b6b", textAlign: "center" }}>
+              ✕ {error}
+            </div>
+          )}
+
+          <div
+            className="g-label"
+            onClick={() => { setMode(mode === "login" ? "register" : "login"); setError(null); }}
+            style={{ marginTop: 18, fontSize: 9, color: "#4ce7ff", textAlign: "center", cursor: "pointer", letterSpacing: 1.5 }}
+          >
+            {mode === "login" ? "▸ NO ACCOUNT? REGISTER NEW OPERATOR" : "▸ HAVE AN ACCOUNT? SIGN IN"}
           </div>
         </div>
       )}

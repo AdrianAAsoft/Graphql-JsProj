@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TopBar({ status, planetCount, clock, operator }) {
+export default function TopBar({ status, planetCount, clock, operator, onLogout }) {
   const statusLine =
     status === "loading" ? "SYNCING WITH CORE..." :
     status === "error" ? "UPLINK FAILED" :
@@ -20,9 +20,23 @@ export default function TopBar({ status, planetCount, clock, operator }) {
           <div className="g-label" style={{ fontSize: 9, color: "#1c5b6e" }}>{statusLine}</div>
         </div>
       </div>
-      <div className="g-label" style={{ fontSize: 11, color: "#4ce7ff", textAlign: "right" }}>
-        <div>● {onlineLine}</div>
-        <div style={{ color: "#eafcff" }}>{clock}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <div className="g-label" style={{ fontSize: 11, color: "#4ce7ff", textAlign: "right" }}>
+          <div>● {onlineLine}</div>
+          <div style={{ color: "#eafcff" }}>{clock}</div>
+        </div>
+        {onLogout && (
+          <button
+            className="g-label"
+            onClick={onLogout}
+            style={{
+              background: "transparent", color: "#ff6b6b", border: "1px solid rgba(255,107,107,.35)",
+              padding: "7px 12px", fontSize: 10, letterSpacing: 1.5, cursor: "pointer",
+            }}
+          >
+            DISCONNECT
+          </button>
+        )}
       </div>
     </div>
   );

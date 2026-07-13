@@ -2,6 +2,7 @@ node_modules
 dist
 graphify-out
 .git
+.env
 *.md
 LICENSE
 docker-compose.yml

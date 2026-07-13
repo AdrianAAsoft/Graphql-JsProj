@@ -25,6 +25,19 @@ export async function inDb() {
           name TEXT NOT NULL,
           item int REFERENCES Items(id)
         );
+
+        -- basic account fields (added onto the existing users table)
+        ALTER TABLE users ADD COLUMN IF NOT EXISTS username TEXT UNIQUE;
+        ALTER TABLE users ADD COLUMN IF NOT EXISTS password TEXT;  -- scrypt hash, never plaintext
+        ALTER TABLE users ADD COLUMN IF NOT EXISTS email TEXT;
+
+        -- session / system event log
+        CREATE TABLE IF NOT EXISTS logs (
+          id SERIAL PRIMARY KEY,
+          level TEXT NOT NULL DEFAULT 'info',
+          message TEXT NOT NULL,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+        );
       `);
         console.log('Database connected and tables initialized');
     } catch (err) {
